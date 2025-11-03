@@ -17,6 +17,7 @@ This is a Next.js 16 fashion app landing page project (clamby.id) - a company pr
 - **Components**: shadcn/ui (New York style)
 - **Icons**: Lucide React
 - **Fonts**: Geist Sans & Geist Mono
+- **Animation**: GSAP (GreenSock Animation Platform) with `@gsap/react`
 
 ## shadcn/ui Usage
 
@@ -110,6 +111,23 @@ hooks/           # Custom React hooks (if needed, typically in src/)
 - Implement proper caching strategies
 - Minimize bundle size
 - Use React.memo for expensive components when appropriate
+
+## Animation & Interactivity
+
+### Core Animation Technology
+
+- **Primary Tool**: You **must** use **GSAP (GreenSock Animation Platform)** for all non-trivial animations and page transitions.
+- **Integration**: Use the `@gsap/react` package and its `useGSAP` hook for integrating animations within React components. This requires `"use client"`.
+- **Plugin**: You **must** use the **GSAP ScrollTrigger** plugin to create animations that react to scroll position (e.g., reveal-on-scroll, parallax effects).
+
+### Animation Guidelines
+
+- **Implement Smooth Page Transitions**: Use GSAP to create professional transitions between page routes.
+- **Create Interactive Micro-animations**: Apply subtle animations to interactive elements like buttons, navigation links, and cards on hover or click.
+- **Animate on Scroll**: All content sections (e.g., Hero, Feature sections) must have an appropriate "reveal" animation as they enter the viewport, managed by ScrollTrigger.
+- **Performance**: Ensure all animations are performant. Prioritize animating CSS `transform` and `opacity` properties.
+- **Accessibility**: All animations must respect the `prefers-reduced-motion` media query. Wrap animations in a check for this setting.
+- **Quality Standard**: Animations should not be jarring. They must be smooth, professional, and contribute to the "amazing quality" specified, enhancing the user experience, not distracting from it.
 
 ## File Naming Conventions
 
