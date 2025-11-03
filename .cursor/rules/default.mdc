@@ -101,8 +101,19 @@ hooks/           # Custom React hooks (if needed, typically in src/)
 - Write self-documenting code with clear naming
 - Keep functions pure when possible
 - Extract magic numbers/strings to constants
-- Use ESLint (configured with Next.js config)
-- Format code consistently (use Prettier if configured)
+- Follow ESLint and Prettier rules for consistent code style
+
+### Code Formatting & Linting
+
+- **ESLint**: Configured with Next.js ESLint config and integrated with Prettier
+  - Run `npm run lint` to check for linting errors
+  - Run `npm run lint:fix` to automatically fix linting issues
+- **Prettier**: Code formatter configured and integrated with ESLint
+  - Configuration file: `.prettierrc.json`
+  - Run `npm run format` to format all files
+  - Run `npm run format:check` to check formatting without making changes
+- **Integration**: Prettier formatting errors are reported as ESLint errors
+- Always ensure code is properly formatted before committing
 
 ### Performance
 
