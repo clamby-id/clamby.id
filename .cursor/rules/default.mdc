@@ -6,7 +6,7 @@ alwaysApply: true
 
 ## Project Overview
 
-This is a Next.js 16 florist landing page project using React 19, TypeScript, and Tailwind CSS 4. The project uses shadcn/ui components and follows strict architectural principles.
+This is a Next.js 16 fashion app landing page project (clamby.id) - a company profile site using React 19, TypeScript, and Tailwind CSS 4. The project uses shadcn/ui components and follows strict architectural principles.
 
 ## Core Technologies
 
@@ -32,7 +32,7 @@ This is a Next.js 16 florist landing page project using React 19, TypeScript, an
 
 ### Component Guidelines
 
-- Components live in `components/ui/` directory
+- Components live in `src/components/ui/` directory
 - Use shadcn CLI to add components, never manually copy-paste
 - Extend shadcn components by importing from `@/components/ui` and wrapping/combining them
 - Maintain consistent styling with existing shadcn theme (New York style, neutral base color)
@@ -42,27 +42,28 @@ This is a Next.js 16 florist landing page project using React 19, TypeScript, an
 ### Directory Structure
 
 ```
-app/              # Next.js App Router pages and layouts
-components/       # Reusable React components
-  ui/            # shadcn/ui components (auto-generated)
-lib/             # Utility functions and helpers
-hooks/           # Custom React hooks (if needed)
+src/
+  app/           # Next.js App Router pages and layouts
+  lib/           # Utility functions and helpers
+  components/    # Reusable React components
+    ui/          # shadcn/ui components (auto-generated)
 public/          # Static assets
+hooks/           # Custom React hooks (if needed, typically in src/)
 ```
 
 ### Component Hierarchy
 
-- **Pages** (`app/page.tsx`): Route handlers and page-level logic
-- **Layouts** (`app/layout.tsx`): Shared layout structure
-- **Feature Components** (`components/`): Domain-specific components
-- **UI Components** (`components/ui/`): shadcn base components
-- **Utilities** (`lib/utils.ts`): Pure functions, helpers
+- **Pages** (`src/app/page.tsx`): Route handlers and page-level logic
+- **Layouts** (`src/app/layout.tsx`): Shared layout structure
+- **Feature Components** (`src/components/`): Domain-specific components
+- **UI Components** (`src/components/ui/`): shadcn base components
+- **Utilities** (`src/lib/utils.ts`): Pure functions, helpers
 
 ### Rules
 
 - Pages should only handle routing and data fetching
 - Business logic belongs in components or custom hooks
-- Pure utility functions go in `lib/` directory
+- Pure utility functions go in `src/lib/` directory
 - UI components are reusable and composable
 - No direct DOM manipulation - use React patterns
 - Keep components small and focused (< 200 lines when possible)
@@ -119,10 +120,10 @@ public/          # Static assets
 
 ## Path Aliases
 
-- `@/components` → `components/`
-- `@/lib` → `lib/`
-- `@/hooks` → `hooks/`
-- `@/ui` → `components/ui/`
+- `@/components` → `src/components/`
+- `@/lib` → `src/lib/`
+- `@/hooks` → `src/hooks/` (when hooks directory exists)
+- `@/ui` → `src/components/ui/`
 
 ## Additional Guidelines
 
