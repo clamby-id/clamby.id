@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
@@ -19,6 +18,7 @@ export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const leftContentRef = useRef<HTMLDivElement>(null);
   const rightContentRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
     if (typeof window === "undefined") return false;
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -28,11 +28,26 @@ export function HeroSection() {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const handleChange = (e: MediaQueryListEvent) => {
       setPrefersReducedMotion(e.matches);
+      // Pause video if user prefers reduced motion
+      if (videoRef.current) {
+        if (e.matches) {
+          videoRef.current.pause();
+        } else {
+          videoRef.current.play().catch(() => {
+            // Ignore autoplay errors
+          });
+        }
+      }
     };
+
+    // Handle initial state
+    if (prefersReducedMotion && videoRef.current) {
+      videoRef.current.pause();
+    }
 
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
+  }, [prefersReducedMotion]);
 
   useGSAP(
     () => {
@@ -202,15 +217,18 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Content - Hero Image */}
+          {/* Right Content - Hero Video */}
           <div ref={rightContentRef} className="relative h-full">
             <div className="relative h-full w-full rounded-lg overflow-hidden">
-              <Image
-                src={ASSETS.HERO_IMAGE}
-                alt="Clamby - Digital Wardrobe Assistant"
-                fill
-                className="object-cover"
-                priority
+              <video
+                ref={videoRef}
+                src={ASSETS.PLACEHOLDER_VIDEO}
+                autoPlay={!prefersReducedMotion}
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+                aria-label="Clamby - Digital Wardrobe Assistant"
               />
             </div>
           </div>

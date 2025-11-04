@@ -31,7 +31,10 @@ export const BRAND = {
 // Asset paths (images, icons, etc.)
 export const ASSETS = {
   LOGO_WITH_TEXT: "/logo-with-text.png",
+  LOGO_WITH_TEXT_WHITE: "/logo-with-text-white.png",
+  LOGO_WITH_TEXT_BLACK: "/logo-with-text-black.png",
   HERO_IMAGE: "/hero.png",
   OG_IMAGE: "/og.png",
   ICON: "/icon.png",
+  PLACEHOLDER_VIDEO: "/placeholder-video.mp4",
 } as const;
