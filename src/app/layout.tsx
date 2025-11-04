@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { ASSETS } from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
   title: "clamby.id - Under Construction",
   description:
     "clamby.id website is currently under construction. Please check back soon.",
+  icons: {
+    icon: ASSETS.ICON,
+  },
 };
 
 export default function RootLayout({

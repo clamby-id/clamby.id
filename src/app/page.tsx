@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/HeroSection";
+import { ASSETS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Clamby - Your Digital Wardrobe Assistant",
@@ -46,6 +47,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   metadataBase: new URL("https://clamby.id"),
+  icons: {
+    icon: ASSETS.ICON,
+  },
 };
 
 export default function Home() {

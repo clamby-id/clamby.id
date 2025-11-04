@@ -33,4 +33,5 @@ export const ASSETS = {
   LOGO_WITH_TEXT: "/logo-with-text.png",
   HERO_IMAGE: "/hero.png",
   OG_IMAGE: "/og.png",
+  ICON: "/icon.png",
 } as const;

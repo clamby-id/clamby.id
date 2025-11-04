@@ -52,7 +52,7 @@ export function Header() {
           <Button
             variant="default"
             size="sm"
-            className="bg-accent text-accent-foreground hover:bg-accent/90"
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
             asChild
           >
             <Link href={EXTERNAL_LINKS.APP_STORE}>Get the app</Link>
