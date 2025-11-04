@@ -151,7 +151,7 @@ export function AnimatedBackground() {
   return (
     <>
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-background to-secondary/5" />
+      <div className="absolute inset-0 bg-background" />
 
       {/* Floating particles */}
       {particlePositions.length > 0 && (

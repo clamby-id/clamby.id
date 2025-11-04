@@ -1,26 +1,34 @@
 import type { Metadata } from "next";
-import { UnderConstructionContent } from "@/components/under-construction/UnderConstructionContent";
+import { HeroSection } from "@/components/HeroSection";
 
 export const metadata: Metadata = {
-  title: "clamby.id - Fashion Brand Under Construction",
+  title: "Clamby - Your Digital Wardrobe Assistant",
   description:
-    "clamby.id website is currently under construction. Please check back soon for our latest fashion collections and updates.",
-  keywords: ["fashion", "clamby", "clothing", "style", "fashion brand"],
+    "Transform your wardrobe with AI-powered style guidance. Upload your clothes, get AI-enhanced versions, and mix & match fashion items based on occasion, weather, and your preferred style.",
+  keywords: [
+    "fashion",
+    "clamby",
+    "digital wardrobe",
+    "AI fashion",
+    "style assistant",
+    "wardrobe management",
+    "fashion app",
+  ],
   authors: [{ name: "clamby.id" }],
   creator: "clamby.id",
   publisher: "clamby.id",
   openGraph: {
-    title: "clamby.id - Fashion Brand Under Construction",
+    title: "Clamby - Your Digital Wardrobe Assistant",
     description:
-      "clamby.id website is currently under construction. Please check back soon for our latest fashion collections and updates.",
+      "Transform your wardrobe with AI-powered style guidance. Upload your clothes, get AI-enhanced versions, and mix & match fashion items based on occasion, weather, and your preferred style.",
     url: "https://clamby.id",
-    siteName: "clamby.id",
+    siteName: "Clamby",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "clamby.id - Fashion Brand",
+        alt: "Clamby - Digital Wardrobe Assistant",
       },
     ],
     locale: "en_US",
@@ -28,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "clamby.id - Fashion Brand Under Construction",
+    title: "Clamby - Your Digital Wardrobe Assistant",
     description:
-      "clamby.id website is currently under construction. Please check back soon for our latest fashion collections and updates.",
+      "Transform your wardrobe with AI-powered style guidance. Upload your clothes, get AI-enhanced versions, and mix & match fashion items based on occasion, weather, and your preferred style.",
     images: ["/og.png"],
   },
   robots: {
@@ -41,5 +49,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <UnderConstructionContent />;
+  return (
+    <>
+      <HeroSection />
+    </>
+  );
 }
