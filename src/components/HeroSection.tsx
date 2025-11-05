@@ -5,6 +5,11 @@ import { motion, useInView } from "motion/react";
 import { Sparkles, Palette, Calendar } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { ASSETS } from "@/lib/constants";
 import { AnimatedBackground } from "@/components/under-construction/AnimatedBackground";
 
@@ -137,21 +142,30 @@ export function HeroSection() {
 
               {/* App Store Buttons */}
               <div className="flex flex-col gap-3 w-full sm:w-auto h-full justify-center">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="w-full sm:w-auto bg-foreground text-background hover:bg-foreground/90 h-12 px-8 text-base flex items-center gap-3"
-                  disabled
-                >
-                  <Image
-                    src={ASSETS.APP_STORE_BADGE}
-                    alt=""
-                    width={20}
-                    height={20}
-                    className="h-6 w-auto"
-                  />
-                  App Store
-                </Button>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span className="inline-block w-full sm:w-auto">
+                      <Button
+                        size="lg"
+                        variant="secondary"
+                        className="w-full sm:w-auto bg-foreground text-background hover:bg-foreground/90 h-12 px-8 text-base flex items-center gap-3"
+                        disabled
+                      >
+                        <Image
+                          src={ASSETS.APP_STORE_BADGE}
+                          alt=""
+                          width={20}
+                          height={20}
+                          className="h-6 w-auto"
+                        />
+                        App Store
+                      </Button>
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Still in development - Coming soon!</p>
+                  </TooltipContent>
+                </Tooltip>
 
                 <p className="text-sm text-muted-foreground text-center">
                   Requires iOS 16 and above
