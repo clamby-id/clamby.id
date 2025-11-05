@@ -39,10 +39,10 @@ export function Header() {
             Milestones
           </Link>
           <Link
-            href={NAV_LINKS.FAQ}
+            href={NAV_LINKS.REVIEWS}
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            FAQ
+            Reviews
           </Link>
           <Link
             href={NAV_LINKS.CONTACT_US}

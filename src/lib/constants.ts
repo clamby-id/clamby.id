@@ -7,7 +7,7 @@
 export const NAV_LINKS = {
   ABOUT_US: "#about-us",
   MILESTONES: "#milestones",
-  FAQ: "#faq",
+  REVIEWS: "#reviews",
   CONTACT_US: "#contact-us",
 } as const;
 

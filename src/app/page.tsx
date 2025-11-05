@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { MilestonesSection } from "@/components/sections/MilestonesSection";
+import { ReviewSection } from "@/components/sections/ReviewSection";
 import { ASSETS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <MilestonesSection />
+      <ReviewSection />
     </>
   );
 }
