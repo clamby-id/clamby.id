@@ -21,10 +21,10 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen w-full overflow-hidden bg-background"
+      className="relative w-full overflow-hidden bg-background"
     >
       <AnimatedBackground />
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Left Content */}
           <div ref={leftContentRef} className="space-y-8 flex flex-col">

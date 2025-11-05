@@ -66,10 +66,10 @@ export function MilestonesSection() {
   return (
     <section
       id="milestones"
-      className="relative w-full py-20 sm:py-32 bg-linear-180 from-background to-secondary"
+      className="relative w-full py-10 sm:py-16 bg-linear-180 from-background to-secondary scroll-mt-16"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-card shadow-2xl border border-border">
+        <div className="overflow-hidden rounded-3xl bg-card shadow-2xl border border-border">
           {/* Main container with two columns */}
           <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] min-h-[600px]">
             {/* Left sidebar - Title and milestone list */}
