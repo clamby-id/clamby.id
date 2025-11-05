@@ -6,6 +6,7 @@
 // Internal navigation links
 export const NAV_LINKS = {
   ABOUT_US: "#about-us",
+  MILESTONES: "#milestones",
   FAQ: "#faq",
   CONTACT_US: "#contact-us",
 } as const;

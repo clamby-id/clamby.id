@@ -33,6 +33,12 @@ export function Header() {
             About us
           </Link>
           <Link
+            href={NAV_LINKS.MILESTONES}
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Milestones
+          </Link>
+          <Link
             href={NAV_LINKS.FAQ}
             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/HeroSection";
+import { MilestonesSection } from "@/components/sections/MilestonesSection";
 import { ASSETS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -56,6 +57,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <MilestonesSection />
     </>
   );
 }
