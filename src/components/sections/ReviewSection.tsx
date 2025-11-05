@@ -158,8 +158,8 @@ export function ReviewSection() {
               real users.
             </h2>
 
-            {/* Navigation Buttons */}
-            <div className="flex items-center gap-3">
+            {/* Navigation Buttons - Desktop Only */}
+            <div className="hidden lg:flex items-center gap-3">
               <Button
                 variant="outline"
                 size="icon"
@@ -192,7 +192,7 @@ export function ReviewSection() {
               delay: 0.2,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="w-full"
+            className="w-full space-y-6"
           >
             <Carousel
               setApi={setApi}
@@ -213,6 +213,30 @@ export function ReviewSection() {
                 ))}
               </CarouselContent>
             </Carousel>
+
+            {/* Navigation Buttons - Mobile Only */}
+            <div className="flex lg:hidden items-center justify-center gap-3">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollPrev}
+                disabled={!canScrollPrev}
+                className="h-12 w-12 rounded-full"
+                aria-label="Previous reviews"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={scrollNext}
+                disabled={!canScrollNext}
+                className="h-12 w-12 rounded-full"
+                aria-label="Next reviews"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </Button>
+            </div>
           </motion.div>
         </div>
       </div>
