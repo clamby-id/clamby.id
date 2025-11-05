@@ -1,113 +1,22 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import { Sparkles, Palette, Calendar } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ASSETS } from "@/lib/constants";
 import { AnimatedBackground } from "@/components/under-construction/AnimatedBackground";
 
-// Register ScrollTrigger plugin
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const leftContentRef = useRef<HTMLDivElement>(null);
   const rightContentRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  });
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-      // Pause video if user prefers reduced motion
-      if (videoRef.current) {
-        if (e.matches) {
-          videoRef.current.pause();
-        } else {
-          videoRef.current.play().catch(() => {
-            // Ignore autoplay errors
-          });
-        }
-      }
-    };
-
-    // Handle initial state
-    if (prefersReducedMotion && videoRef.current) {
-      videoRef.current.pause();
-    }
-
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [prefersReducedMotion]);
-
-  useGSAP(
-    () => {
-      if (prefersReducedMotion) return;
-
-      const leftElements = leftContentRef.current?.children || [];
-      const rightElement = rightContentRef.current;
-
-      // Animate left content items
-      Array.from(leftElements).forEach((element, index) => {
-        gsap.fromTo(
-          element,
-          {
-            opacity: 0,
-            y: 30,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: index * 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: element,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      });
-
-      // Animate right content
-      if (rightElement) {
-        gsap.fromTo(
-          rightElement,
-          {
-            opacity: 0,
-            scale: 0.95,
-          },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: rightElement,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-      return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
-    },
-    { scope: containerRef, dependencies: [prefersReducedMotion] }
-  );
+  // Use Motion's useInView for scroll-triggered animations
+  const leftInView = useInView(leftContentRef, { once: true, amount: 0.3 });
+  const rightInView = useInView(rightContentRef, { once: true, amount: 0.3 });
 
   return (
     <section
@@ -120,19 +29,48 @@ export function HeroSection() {
           {/* Left Content */}
           <div ref={leftContentRef} className="space-y-8 flex flex-col">
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={
+                leftInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+              }
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight"
+            >
               Transform your wardrobe with AI-powered style guidance
-            </h1>
+            </motion.h1>
 
             {/* Description */}
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={
+                leftInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+              }
+              transition={{
+                duration: 0.8,
+                delay: 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="text-lg sm:text-xl text-muted-foreground leading-relaxed"
+            >
               Upload your clothes and let AI analyze and enhance them. Mix and
               match fashion items based on occasion, weather, and your preferred
               style. Join Clamby today and discover your perfect wardrobe.
-            </p>
+            </motion.p>
 
             {/* Feature List */}
-            <div className="space-y-4 pt-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={
+                leftInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+              }
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="space-y-4 pt-4"
+            >
               <div className="flex items-start gap-4">
                 <div className="mt-1 shrink-0">
                   <Sparkles className="h-6 w-6 text-primary" />
@@ -171,10 +109,21 @@ export function HeroSection() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* App Download Section */}
-            <div className="flex flex-col sm:flex-row items-center sm:items-stretch sm:justify-center lg:justify-start gap-6 pt-4">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={
+                leftInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+              }
+              transition={{
+                duration: 0.8,
+                delay: 0.45,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="flex flex-col sm:flex-row items-center sm:items-stretch sm:justify-center lg:justify-start gap-6 pt-4"
+            >
               {/* QR Code */}
               <div className="hidden sm:flex shrink-0">
                 <Image
@@ -220,16 +169,26 @@ export function HeroSection() {
                   Google Play
                 </Button>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Content - Hero Video */}
-          <div ref={rightContentRef} className="relative h-full">
+          <motion.div
+            ref={rightContentRef}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={
+              rightInView
+                ? { opacity: 1, scale: 1 }
+                : { opacity: 0, scale: 0.95 }
+            }
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative h-full"
+          >
             <div className="relative h-full w-full rounded-lg overflow-hidden">
               <video
                 ref={videoRef}
                 src={ASSETS.PLACEHOLDER_VIDEO}
-                autoPlay={!prefersReducedMotion}
+                autoPlay
                 loop
                 muted
                 playsInline
@@ -237,7 +196,7 @@ export function HeroSection() {
                 aria-label="Clamby - Digital Wardrobe Assistant"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

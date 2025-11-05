@@ -17,7 +17,7 @@ This is a Next.js 16 fashion app landing page project (clamby.id) - a company pr
 - **Components**: shadcn/ui (New York style)
 - **Icons**: Lucide React
 - **Fonts**: Geist Sans & Geist Mono
-- **Animation**: GSAP (GreenSock Animation Platform) with `@gsap/react`
+- **Animation**: Motion (motion) - modern animation library
 
 ## shadcn/ui Usage
 
@@ -37,6 +37,30 @@ This is a Next.js 16 fashion app landing page project (clamby.id) - a company pr
 - Use shadcn CLI to add components, never manually copy-paste
 - Extend shadcn components by importing from `@/components/ui` and wrapping/combining them
 - Maintain consistent styling with existing shadcn theme (New York style, neutral base color)
+
+## Motion Animation Library
+
+### MCP Integration
+
+Motion provides MCP tools for generating professional CSS easing functions:
+
+- **Generate CSS Spring Animations**: Use `mcp_motion_generate-css-spring` to create spring-based animations
+  - Parameters:
+    - `bounce`: Number between 0 and 1 (0 = no bounce, 1 = max bounce). Default: 0.2
+    - `duration`: Perceptual duration in seconds. Default: 0.4
+  - Returns: CSS `<duration> <easing-function>` string for use in CSS transitions
+  - Example: Quick animations ~0.2s, normal ~0.3-0.4s, slow ~1s
+- **Generate CSS Bounce Easing**: Use `mcp_motion_generate-css-bounce-easing` for bouncing animations
+  - Parameters:
+    - `duration`: Duration in seconds. Default: 1
+  - Best used with longer durations (~1 second) for realistic bounce effects
+  - Returns: CSS easing function string
+
+### When to Use Motion MCP Tools
+
+- Use MCP tools when you need CSS-based easing functions for `transition` properties
+- For React component animations, use Motion's JavaScript API directly (`motion` components)
+- MCP tools are ideal for coordinating CSS transitions with other Motion animations
 
 ## Architecture & Separation of Concerns
 
@@ -58,7 +82,7 @@ hooks/           # Custom React hooks (if needed, typically in src/)
 - **Layouts** (`src/app/layout.tsx`): Shared layout structure
 - **Feature Components** (`src/components/`): Domain-specific components
 - **UI Components** (`src/components/ui/`): shadcn base components
-- **Utilities** (`src/lib/utils.ts`): Pure functions, helpers
+- **Utilities** (`src/lib/`): Pure functions, helpers
 
 ### Rules
 
@@ -127,18 +151,26 @@ hooks/           # Custom React hooks (if needed, typically in src/)
 
 ### Core Animation Technology
 
-- **Primary Tool**: You **must** use **GSAP (GreenSock Animation Platform)** for all non-trivial animations and page transitions.
-- **Integration**: Use the `@gsap/react` package and its `useGSAP` hook for integrating animations within React components. This requires `"use client"`.
-- **Plugin**: You **must** use the **GSAP ScrollTrigger** plugin to create animations that react to scroll position (e.g., reveal-on-scroll, parallax effects).
+- **Primary Tool**: You **must** use **Motion** (`motion` package) for all non-trivial animations and page transitions.
+- **Integration**: Use the `motion` component from `motion/react` for integrating animations within React components. This requires `"use client"`.
+- **Scroll Animations**: Use Motion's `useInView` hook to create animations that react to scroll position (e.g., reveal-on-scroll effects).
 
 ### Animation Guidelines
 
-- **Implement Smooth Page Transitions**: Use GSAP to create professional transitions between page routes.
+- **Implement Smooth Page Transitions**: Use Motion to create professional transitions between page routes.
 - **Create Interactive Micro-animations**: Apply subtle animations to interactive elements like buttons, navigation links, and cards on hover or click.
-- **Animate on Scroll**: All content sections (e.g., Hero, Feature sections) must have an appropriate "reveal" animation as they enter the viewport, managed by ScrollTrigger.
+- **Animate on Scroll**: All content sections (e.g., Hero, Feature sections) should have an appropriate "reveal" animation as they enter the viewport, managed by `useInView`.
 - **Performance**: Ensure all animations are performant. Prioritize animating CSS `transform` and `opacity` properties.
-- **Accessibility**: All animations must respect the `prefers-reduced-motion` media query. Wrap animations in a check for this setting.
 - **Quality Standard**: Animations should not be jarring. They must be smooth, professional, and contribute to the "amazing quality" specified, enhancing the user experience, not distracting from it.
+
+### Motion Best Practices
+
+- Use `motion.div`, `motion.section`, etc. for animated elements
+- Leverage `useInView` for scroll-triggered animations with `once: true` to animate only once
+- Use easing functions like `[0.16, 1, 0.3, 1]` for smooth, professional animations
+- Stagger animations with delay for sequential reveal effects
+- Store animation configurations (like random values) in state during mount to avoid impure render functions
+- Use `transition.repeat: Infinity` for continuous looping animations
 
 ## File Naming Conventions
 
