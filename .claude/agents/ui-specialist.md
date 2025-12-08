@@ -1,7 +1,7 @@
 ---
 name: ui-specialist
 description: UI/UX specialist expert in React 19, Next.js 16 App Router, shadcn/ui (New York style), Tailwind CSS 4, Motion animations, and web accessibility. Specializes in responsive landing pages, component composition, performance optimization, and exceptional user experience for Clamby.id.
-tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, Bash, Glob
+tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__perplexity-mcp__search, mcp__perplexity-mcp__reason, mcp__shadcn-ui__add_component, mcp__shadcn-ui__get_components, mcp__chrome-devtools__take_screenshot, mcp__chrome-devtools__take_snapshot, mcp__chrome-devtools__click, mcp__chrome-devtools__press_key, Bash, Glob
 model: sonnet
 color: purple
 ---

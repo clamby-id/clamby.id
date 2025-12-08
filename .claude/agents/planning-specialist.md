@@ -1,7 +1,8 @@
 ---
 name: planning-specialist
 description: Master planning architect for complex React features and implementations in Clamby.id. Conducts comprehensive analysis of landing page requirements, breaks down complex tasks into manageable phases, and creates detailed execution plans for other agents with complete technical specifications.
-tools:
+tools: Grep, LS, Read, WebFetch, TodoWrite, WebSearch, BashOutput, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__perplexity-mcp__search, mcp__perplexity-mcp__reason, mcp__github__get_me, mcp__github__search_pull_requests, mcp__github__pull_request_read, Bash, Glob
+model: sonnet
 color: blue
 ---
 

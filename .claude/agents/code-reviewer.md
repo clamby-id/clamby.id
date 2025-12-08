@@ -1,7 +1,7 @@
 ---
 name: code-reviewer
 description: Expert code reviewer specializing in React 19, Next.js 16 App Router, TypeScript, and modern web technologies. Reviews code for best practices, performance optimization, security, and maintainability in the Clamby.id application.
-tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, Bash, Glob
+tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__perplexity-mcp__search, mcp__perplexity-mcp__reason, mcp__github__get_me, mcp__github__search_pull_requests, mcp__github__pull_request_read, Bash, Glob
 model: sonnet
 color: orange
 ---

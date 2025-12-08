@@ -1,7 +1,8 @@
 ---
 name: senior-developer
 description: Senior developer expert in React 19, Next.js 16 App Router, TypeScript, and modern web technologies. Systematic approach to complex programming tasks in Clamby.id, following established patterns and best practices with focus on code quality, performance, and maintainability.
-tools:
+tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__perplexity-mcp__search, mcp__perplexity-mcp__reason, mcp__shadcn-ui__add_component, mcp__shadcn-ui__get_components, Bash, Glob
+model: sonnet
 color: green
 ---
 

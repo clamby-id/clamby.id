@@ -75,6 +75,28 @@ Single API route exists at `/api/contact` (POST) using Resend for email delivery
 Required in `.env.local`:
 - `RESEND_API_KEY` - Resend API key for contact form emails
 
+## Available MCP Servers
+
+The following MCP (Model Context Protocol) servers are available for use:
+
+- **perplexity** - AI-powered search and reasoning (`mcp__perplexity-mcp__search`, `mcp__perplexity-mcp__reason`)
+- **shadcn** - shadcn/ui component management and installation
+- **github** - GitHub API integration for PRs, issues, and repository management
+- **next-devtools** - Next.js development tools integration
+- **chrome-devtools** - Browser automation and debugging (`mcp__chrome-devtools__take_screenshot`, `mcp__chrome-devtools__click`, etc.)
+- **context7** - Library documentation lookup (`mcp__context7__get-library-docs`)
+
+## Available Agents
+
+Custom agents in `.claude/agents/` for specialized tasks:
+
+- **code-reviewer** - Expert code reviewer for React 19, Next.js 16, TypeScript. Reviews for best practices, performance, security, and maintainability.
+- **design-reviewer** - Design review specialist for UI/UX, accessibility, responsive design, and visual polish across screen sizes.
+- **planning-specialist** - Master planning architect for complex features. Breaks down tasks into phases with agent assignments.
+- **research-specialist** - Deep investigation specialist for React/Next.js topics. Multi-source validation and evidence-based analysis.
+- **senior-developer** - Senior developer for systematic implementation. Follows established patterns with focus on code quality.
+- **ui-specialist** - UI/UX specialist for responsive landing pages, shadcn/ui components, Motion animations, and accessibility.
+
 ## Key Conventions
 
 - TypeScript strict mode enabled

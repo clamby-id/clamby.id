@@ -1,7 +1,7 @@
 ---
 name: design-reviewer
 description: Use this agent when you need to conduct a comprehensive design review on React UI changes or web application features. This agent should be triggered when a PR modifying React components, pages, or user-facing features needs review; you want to verify visual consistency with shadcn/ui, accessibility compliance, and web UX quality; you need to review responsive design across different screen sizes; or you want to ensure that new UI changes meet world-class web design standards. Example - "Review the design changes in PR 234"
-tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, Bash, Glob
+tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__perplexity-mcp__search, mcp__perplexity-mcp__reason, mcp__chrome-devtools__take_screenshot, mcp__chrome-devtools__take_snapshot, mcp__chrome-devtools__click, mcp__chrome-devtools__press_key, Bash, Glob
 model: sonnet
 color: pink
 ---

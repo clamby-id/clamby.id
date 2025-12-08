@@ -1,7 +1,7 @@
 ---
 name: research-specialist
 description: Advanced research specialist for deep investigation and comprehensive analysis of React 19, Next.js 16, TypeScript, and modern web development topics. Use for complex topics requiring multi-source validation, evidence synthesis, and systematic investigation. Expert in React ecosystem research, npm package evaluation, Next.js best practices, and web architecture patterns.
-tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__perplexity-mcp__search, Bash, Glob
+tools: Grep, LS, Read, Edit, MultiEdit, Write, NotebookEdit, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, ListMcpResourcesTool, ReadMcpResourceTool, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__perplexity-mcp__search, mcp__perplexity-mcp__reason, mcp__github__get_me, mcp__github__search_pull_requests, mcp__github__pull_request_read, Bash, Glob
 model: opus
 color: red
 ---
