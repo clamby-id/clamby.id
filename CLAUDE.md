@@ -36,6 +36,7 @@ src/
 ### Path Aliases
 
 Use `@/` prefix for all imports (maps to `src/`):
+
 - `@/components/ui/button`
 - `@/lib/utils`
 
@@ -73,6 +74,7 @@ Single API route exists at `/api/contact` (POST) using Resend for email delivery
 ## Environment Variables
 
 Required in `.env.local`:
+
 - `RESEND_API_KEY` - Resend API key for contact form emails
 
 ## Available MCP Servers
