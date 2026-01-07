@@ -44,35 +44,35 @@ export function Header() {
           />
         </Link>
 
-        {/* Navigation Links - Desktop */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link
-            href={NAV_LINKS.OVERVIEW}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Overview
-          </Link>
-          <Link
-            href={NAV_LINKS.BENEFITS}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Benefits
-          </Link>
-          <Link
-            href={NAV_LINKS.CONTACT}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Contact
-          </Link>
-        </nav>
-
-        {/* Right side actions */}
+        {/* Right side - Navigation Links + Get App Button */}
         <div className="flex items-center gap-4">
+          {/* Navigation Links - Desktop */}
+          <nav className="hidden md:flex items-center gap-8">
+            <Link
+              href={NAV_LINKS.OVERVIEW}
+              className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Overview
+            </Link>
+            <Link
+              href={NAV_LINKS.BENEFITS}
+              className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Benefits
+            </Link>
+            <Link
+              href={NAV_LINKS.CONTACT}
+              className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Contact
+            </Link>
+          </nav>
+
           {/* Get App Button - Desktop */}
           <Button
             variant="default"
-            size="default"
-            className="hidden md:inline-flex rounded-full px-6"
+            size="lg"
+            className="hidden md:inline-flex rounded-full px-8"
             asChild
           >
             <a
