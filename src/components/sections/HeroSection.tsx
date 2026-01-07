@@ -13,6 +13,7 @@ export function HeroSection() {
   useEffect(() => {
     const words = HERO_CONTENT.TYPEWRITER_WORDS;
     const currentWord = words[currentWordIndex];
+    let pauseTimeout: NodeJS.Timeout | null = null;
 
     const timeout = setTimeout(
       () => {
@@ -20,7 +21,7 @@ export function HeroSection() {
           if (displayText.length < currentWord.length) {
             setDisplayText(currentWord.slice(0, displayText.length + 1));
           } else {
-            setTimeout(() => setIsDeleting(true), 2000);
+            pauseTimeout = setTimeout(() => setIsDeleting(true), 2000);
           }
         } else {
           if (displayText.length > 0) {
@@ -34,41 +35,28 @@ export function HeroSection() {
       isDeleting ? 50 : 100
     );
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      if (pauseTimeout) clearTimeout(pauseTimeout);
+    };
   }, [displayText, isDeleting, currentWordIndex]);
 
   return (
     <section
       id="overview"
-      className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, var(--brand-100) 0%, white 70%)",
-      }}
+      className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-gradient-bg"
     >
       {/* Floating decorative icons */}
-      <div
-        className="absolute left-[10%] top-[30%] text-brand-600 opacity-60"
-        style={{ animation: "float 6s ease-in-out infinite" }}
-      >
+      <div className="absolute left-[10%] top-[30%] text-brand-600 opacity-60 float-animation">
         <Shirt size={96} fill="currentColor" strokeWidth={1} />
       </div>
-      <div
-        className="absolute right-[15%] top-[25%] text-brand-600 opacity-60"
-        style={{ animation: "float 6s ease-in-out infinite 1s" }}
-      >
+      <div className="absolute right-[15%] top-[25%] text-brand-600 opacity-60 float-animation-delay-1">
         <Footprints size={80} fill="currentColor" strokeWidth={1} />
       </div>
-      <div
-        className="absolute left-[20%] bottom-[20%] text-brand-600 opacity-40"
-        style={{ animation: "float 6s ease-in-out infinite 2s" }}
-      >
+      <div className="absolute left-[20%] bottom-[20%] text-brand-600 opacity-40 float-animation-delay-2">
         <Shirt size={64} fill="currentColor" strokeWidth={1} />
       </div>
-      <div
-        className="absolute right-[10%] bottom-[30%] text-brand-600 opacity-40"
-        style={{ animation: "float 6s ease-in-out infinite 0.5s" }}
-      >
+      <div className="absolute right-[10%] bottom-[30%] text-brand-600 opacity-40 float-animation-delay-0-5">
         <Footprints size={72} fill="currentColor" strokeWidth={1} />
       </div>
 
@@ -82,14 +70,11 @@ export function HeroSection() {
           {/* Main headline with typewriter */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-brand-900 mb-2">
             <span>{displayText}</span>
-            <span
-              className="inline-block w-[3px] h-[0.9em] bg-brand-900 ml-1 align-middle"
-              style={{ animation: "blink 1s step-end infinite" }}
-            />
+            <span className="inline-block w-[3px] h-[0.9em] bg-brand-900 ml-1 align-middle blink-animation" />
           </h1>
 
           {/* Gradient tagline */}
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 bg-gradient-to-r from-brand-600 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 bg-linear-to-r from-brand-600 to-purple-400 bg-clip-text text-transparent">
             {HERO_CONTENT.TAGLINE}
           </h2>
 

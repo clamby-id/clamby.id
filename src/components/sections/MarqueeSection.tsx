@@ -15,7 +15,7 @@ export function MarqueeSection() {
             <span className="text-white text-2xl font-black tracking-widest uppercase">
               {marqueeText}
             </span>
-            <Star className="text-yellow-300 h-6 w-6 fill-yellow-300" />
+            <Star className="text-accent h-6 w-6 fill-accent" />
           </div>
         ))}
       </div>

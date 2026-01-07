@@ -58,6 +58,34 @@
   }
 }
 
+.hero-gradient-bg {
+  background: radial-gradient(
+    ellipse at center,
+    var(--brand-100) 0%,
+    white 70%
+  );
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-animation-delay-1 {
+  animation: float 6s ease-in-out infinite 1s;
+}
+
+.float-animation-delay-2 {
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+.float-animation-delay-0-5 {
+  animation: float 6s ease-in-out infinite 0.5s;
+}
+
+.blink-animation {
+  animation: blink 1s step-end infinite;
+}
+
 :root {
   --background: oklch(0.9851 0 0);
   --foreground: oklch(0.2732 0.0113 300.8271);

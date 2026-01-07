@@ -1,16 +1,21 @@
 import { Clock, Shirt, Tag } from "lucide-react";
 import { BENEFITS } from "@/lib/constants";
 
-const iconMap = {
+type BenefitIconType = "clock" | "shirt" | "tag";
+
+const iconMap: Record<
+  BenefitIconType,
+  typeof Clock | typeof Shirt | typeof Tag
+> = {
   clock: Clock,
   shirt: Shirt,
   tag: Tag,
 };
 
-const colorMap = {
-  clock: { bg: "bg-blue-50", icon: "text-blue-500" },
-  shirt: { bg: "bg-purple-50", icon: "text-primary" },
-  tag: { bg: "bg-green-50", icon: "text-green-500" },
+const colorMap: Record<BenefitIconType, { bg: string; icon: string }> = {
+  clock: { bg: "bg-accent", icon: "text-accent-foreground" },
+  shirt: { bg: "bg-primary/10", icon: "text-primary" },
+  tag: { bg: "bg-secondary", icon: "text-secondary-foreground" },
 };
 
 export function BenefitsSection() {
@@ -28,15 +33,15 @@ export function BenefitsSection() {
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
           {/* Vertical Dividers for Desktop */}
-          <div className="hidden md:block absolute top-0 bottom-0 left-1/3 w-px bg-gray-200" />
-          <div className="hidden md:block absolute top-0 bottom-0 right-1/3 w-px bg-gray-200" />
+          <div className="hidden md:block absolute top-0 bottom-0 left-1/3 w-px bg-border" />
+          <div className="hidden md:block absolute top-0 bottom-0 right-1/3 w-px bg-border" />
 
           {BENEFITS.map((benefit) => {
             const IconComponent =
-              iconMap[benefit.icon as keyof typeof iconMap] || Clock;
-            const colors = colorMap[benefit.icon as keyof typeof colorMap] || {
-              bg: "bg-gray-50",
-              icon: "text-gray-500",
+              iconMap[benefit.icon as BenefitIconType] || Clock;
+            const colors = colorMap[benefit.icon as BenefitIconType] || {
+              bg: "bg-muted",
+              icon: "text-muted-foreground",
             };
 
             return (

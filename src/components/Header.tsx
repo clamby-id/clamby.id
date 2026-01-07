@@ -24,14 +24,9 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] h-20 transition-shadow duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-100 h-20 bg-white/85 backdrop-blur-md transition-shadow duration-300 ${
         hasScrolled ? "shadow-md" : ""
       }`}
-      style={{
-        backgroundColor: "rgba(255, 255, 255, 0.85)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-      }}
     >
       <div className="container mx-auto flex h-full items-center justify-between px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Logo */}

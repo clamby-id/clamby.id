@@ -12,19 +12,36 @@ export function CTASection() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
+            poster={ASSETS.OG_IMAGE}
           >
             <source src={ASSETS.VIDEO} type="video/webm" />
+            <source
+              src={ASSETS.VIDEO.replace(".webm", ".mp4")}
+              type="video/mp4"
+            />
+            <track
+              kind="captions"
+              srcLang="en"
+              label="English captions"
+              src=""
+            />
+            {/* Fallback content for browsers that don't support video */}
+            Your browser does not support the video tag.
           </video>
 
+          {/* Static fallback image for reduced motion preference */}
+          <div className="hidden motion-reduce:block absolute inset-0">
+            <Image
+              src={ASSETS.OG_IMAGE}
+              alt="Clamby app showcase"
+              fill
+              className="object-cover"
+            />
+          </div>
+
           {/* Overlay */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.75)",
-              backdropFilter: "blur(4px)",
-            }}
-          />
+          <div className="absolute inset-0 bg-white/75 backdrop-blur-sm" />
 
           {/* Content */}
           <div className="relative z-10 py-16 lg:py-24 px-6 text-center">

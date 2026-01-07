@@ -69,32 +69,6 @@ export const BENEFITS = [
   },
 ] as const;
 
-// Carousel step indicators
-export const CAROUSEL_STEPS = [
-  {
-    label: "SNAP!",
-    description: "Take photos",
-    icon: "camera",
-    bgColor: "bg-blue-50",
-    iconBgColor: "bg-blue-100",
-  },
-  {
-    label: "AI Magic",
-    description: "",
-    icon: "wand",
-    bgColor: "bg-primary",
-    iconBgColor: "bg-primary",
-    isCenter: true,
-  },
-  {
-    label: "SAVE!",
-    description: "New Outfits",
-    icon: "shirt",
-    bgColor: "bg-green-50",
-    iconBgColor: "bg-green-100",
-  },
-] as const;
-
 // Asset paths (images, icons, etc.)
 export const ASSETS = {
   LOGO: "/clamby-logomark.webp",

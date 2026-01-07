@@ -7,6 +7,23 @@ import { ASSETS } from "@/lib/constants";
 
 const carouselImages = ASSETS.CAROUSEL;
 
+// Carousel positioning constants
+const CAROUSEL_CONFIG = {
+  CENTER_SCALE: 1.1,
+  CENTER_Z_INDEX: 40,
+  ADJACENT_ITEM_OFFSET: 220,
+  ADJACENT_ITEM_SCALE: 0.9,
+  ADJACENT_Z_INDEX: 30,
+  FAR_ITEM_OFFSET: 175,
+  FAR_ITEM_SCALE: 0.8,
+  FAR_Z_INDEX: 20,
+  VERY_FAR_ITEM_OFFSET: 150,
+  VERY_FAR_ITEM_SCALE: 0.7,
+  VERY_FAR_Z_INDEX: 10,
+  VERY_FAR_OPACITY: 0.2,
+  MOBILE_HIDE_THRESHOLD: 2,
+} as const;
+
 export function CarouselSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const totalItems = carouselImages.length;
@@ -45,54 +62,57 @@ export function CarouselSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const getItemStyle = (index: number) => {
-    const diff = index - normalizedIndex;
-    let offset = diff;
+  const getItemStyle = useCallback(
+    (index: number) => {
+      const diff = index - normalizedIndex;
+      let offset = diff;
 
-    // Handle wrapping
-    if (diff > totalItems / 2) {
-      offset = diff - totalItems;
-    } else if (diff < -totalItems / 2) {
-      offset = diff + totalItems;
-    }
+      // Handle wrapping
+      if (diff > totalItems / 2) {
+        offset = diff - totalItems;
+      } else if (diff < -totalItems / 2) {
+        offset = diff + totalItems;
+      }
 
-    const absOffset = Math.abs(offset);
+      const absOffset = Math.abs(offset);
 
-    // Position calculations
-    let translateX = 0;
-    let scale = 1;
-    let zIndex = 40;
-    let opacity = 1;
+      // Position calculations
+      let translateX = 0;
+      let scale = 1;
+      let zIndex: number = CAROUSEL_CONFIG.CENTER_Z_INDEX;
+      let opacity = 1;
 
-    if (offset === 0) {
-      scale = 1.1;
-      zIndex = 40;
-    } else if (absOffset === 1) {
-      translateX = offset * 220;
-      scale = 0.9;
-      zIndex = 30;
-    } else if (absOffset === 2) {
-      translateX = offset * 175;
-      scale = 0.8;
-      zIndex = 20;
-    } else {
-      translateX = offset * 150;
-      scale = 0.7;
-      zIndex = 10;
-      opacity = 0.2;
-    }
+      if (offset === 0) {
+        scale = CAROUSEL_CONFIG.CENTER_SCALE;
+        zIndex = CAROUSEL_CONFIG.CENTER_Z_INDEX;
+      } else if (absOffset === 1) {
+        translateX = offset * CAROUSEL_CONFIG.ADJACENT_ITEM_OFFSET;
+        scale = CAROUSEL_CONFIG.ADJACENT_ITEM_SCALE;
+        zIndex = CAROUSEL_CONFIG.ADJACENT_Z_INDEX;
+      } else if (absOffset === 2) {
+        translateX = offset * CAROUSEL_CONFIG.FAR_ITEM_OFFSET;
+        scale = CAROUSEL_CONFIG.FAR_ITEM_SCALE;
+        zIndex = CAROUSEL_CONFIG.FAR_Z_INDEX;
+      } else {
+        translateX = offset * CAROUSEL_CONFIG.VERY_FAR_ITEM_OFFSET;
+        scale = CAROUSEL_CONFIG.VERY_FAR_ITEM_SCALE;
+        zIndex = CAROUSEL_CONFIG.VERY_FAR_Z_INDEX;
+        opacity = CAROUSEL_CONFIG.VERY_FAR_OPACITY;
+      }
 
-    // Hide items too far on mobile
-    if (absOffset > 2) {
-      opacity = 0;
-    }
+      // Hide items too far on mobile
+      if (absOffset > CAROUSEL_CONFIG.MOBILE_HIDE_THRESHOLD) {
+        opacity = 0;
+      }
 
-    return {
-      transform: `translateX(${translateX}px) scale(${scale})`,
-      zIndex,
-      opacity,
-    };
-  };
+      return {
+        transform: `translateX(${translateX}px) scale(${scale})`,
+        zIndex,
+        opacity,
+      };
+    },
+    [normalizedIndex, totalItems]
+  );
 
   return (
     <section className="py-16 lg:py-24 bg-brand-50/50" id="app-preview">
@@ -103,27 +123,36 @@ export function CarouselSection() {
         </h2>
 
         {/* Carousel */}
-        <div className="relative h-[350px] sm:h-[400px] lg:h-[450px] flex items-center justify-center overflow-hidden">
+        <div
+          className="relative h-[350px] sm:h-[400px] lg:h-[450px] flex items-center justify-center overflow-hidden"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Digital wardrobe showcase featuring app screenshots"
+        >
           {carouselImages.map((src, index) => {
             const style = getItemStyle(index);
+            const isActive = index === normalizedIndex;
             return (
               <button
                 key={index}
                 onClick={() => moveCarousel(index)}
-                className="absolute cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] focus:outline-none"
+                className="absolute cursor-pointer transition-all duration-500 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-2xl"
                 style={{
                   ...style,
-                  width: index === normalizedIndex ? "18rem" : "12rem",
-                  height: index === normalizedIndex ? "24rem" : "16rem",
+                  width: isActive ? "18rem" : "12rem",
+                  height: isActive ? "24rem" : "16rem",
                 }}
+                aria-label={`View screenshot ${index + 1} of ${totalItems}`}
+                aria-current={isActive ? "true" : undefined}
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
                   <Image
                     src={src}
-                    alt={`Wardrobe ${index + 1}`}
+                    alt=""
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 200px, 300px"
+                    aria-hidden="true"
                   />
                   {/* Overlay for non-active items */}
                   {index !== normalizedIndex && (
