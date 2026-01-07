@@ -74,7 +74,7 @@ export function HeroSection() {
           </h1>
 
           {/* Gradient tagline */}
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 bg-linear-to-r from-brand-600 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 bg-linear-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
             {HERO_CONTENT.TAGLINE}
           </h2>
 
