@@ -1,81 +1,65 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { Instagram, Twitter, Facebook } from "lucide-react";
-import { EXTERNAL_LINKS, ASSETS, ROUTES } from "@/lib/constants";
+import { Instagram } from "lucide-react";
+import { EXTERNAL_LINKS, BRAND, ROUTES } from "@/lib/constants";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t bg-accent">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Logo/Brand */}
-          <Link
-            href={ROUTES.HOME}
-            className="flex items-center hover:opacity-80 transition-opacity"
-          >
-            <Image
-              src={ASSETS.LOGO_WITH_TEXT_BLACK}
-              alt="Clamby Logo"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
-            />
-          </Link>
-
-          {/* Social Media Links */}
-          <div className="flex items-center gap-4">
+    <footer className="w-full border-t bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-7xl">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+          {/* Brand */}
+          <div className="flex flex-col items-center md:items-start gap-1">
             <Link
+              href={ROUTES.HOME}
+              className="text-lg font-bold text-foreground hover:opacity-80 transition-opacity"
+            >
+              {BRAND.NAME}
+            </Link>
+            <p className="text-sm text-muted-foreground">{BRAND.TAGLINE}</p>
+          </div>
+
+          {/* Contact & Social */}
+          <div className="flex items-center gap-4">
+            <a
+              href={EXTERNAL_LINKS.EMAIL}
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Contact
+            </a>
+            <a
               href={EXTERNAL_LINKS.INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent-foreground hover:text-accent-foreground/80 transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Instagram"
             >
-              <Instagram className="h-5 w-5" />
-            </Link>
-            <Link
-              href={EXTERNAL_LINKS.TWITTER}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-foreground hover:text-accent-foreground/80 transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter className="h-5 w-5" />
-            </Link>
-            <Link
-              href={EXTERNAL_LINKS.FACEBOOK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent-foreground hover:text-accent-foreground/80 transition-colors"
-              aria-label="Facebook"
-            >
-              <Facebook className="h-5 w-5" />
-            </Link>
+              <Instagram className="h-4 w-4" />
+            </a>
           </div>
+        </div>
 
-          {/* Copyright and Links */}
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-sm text-accent-foreground">
-              © {currentYear} Clamby. All rights reserved.
-            </p>
-            <div className="flex items-center gap-4">
-              <Link
-                href={ROUTES.PRIVACY_POLICY}
-                className="text-sm text-accent-foreground hover:text-accent-foreground/80 transition-colors underline"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href={ROUTES.TERMS_OF_USE}
-                className="text-sm text-accent-foreground hover:text-accent-foreground/80 transition-colors underline"
-              >
-                Terms of Use
-              </Link>
-            </div>
+        {/* Copyright and Links */}
+        <div className="mt-8 pt-6 border-t flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground">
+            © {currentYear} Clamby. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href={ROUTES.PRIVACY_POLICY}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors underline"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href={ROUTES.TERMS_OF_USE}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors underline"
+            >
+              Terms of Use
+            </Link>
           </div>
         </div>
       </div>

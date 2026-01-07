@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { HeroSection } from "@/components/HeroSection";
-import { AboutSection } from "@/components/sections/AboutSection";
-import { MilestonesSection } from "@/components/sections/MilestonesSection";
-import { ReviewSection } from "@/components/sections/ReviewSection";
-import { WaitlistSection } from "@/components/sections/WaitlistSection";
-import { ContactSection } from "@/components/sections/ContactSection";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { MarqueeSection } from "@/components/sections/MarqueeSection";
+import { CarouselSection } from "@/components/sections/CarouselSection";
+import { BenefitsSection } from "@/components/sections/BenefitsSection";
+import { CTASection } from "@/components/sections/CTASection";
 import { ASSETS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Clamby - Your Digital Wardrobe Assistant",
+  title: "Clamby | AI Wardrobe in Your Pocket",
   description:
-    "Transform your wardrobe with AI-powered style guidance. Upload your clothes, get AI-enhanced versions, and mix & match fashion items based on occasion, weather, and your preferred style.",
+    "Organize your closet, create stunning outfits, and let AI style you perfectly every morning. Your personal AI fashion stylist.",
   keywords: [
     "fashion",
     "clamby",
@@ -19,14 +18,15 @@ export const metadata: Metadata = {
     "style assistant",
     "wardrobe management",
     "fashion app",
+    "AI stylist",
   ],
   authors: [{ name: "clamby.id" }],
   creator: "clamby.id",
   publisher: "clamby.id",
   openGraph: {
-    title: "Clamby - Your Digital Wardrobe Assistant",
+    title: "Clamby | AI Wardrobe in Your Pocket",
     description:
-      "Transform your wardrobe with AI-powered style guidance. Upload your clothes, get AI-enhanced versions, and mix & match fashion items based on occasion, weather, and your preferred style.",
+      "Organize your closet, create stunning outfits, and let AI style you perfectly every morning. Your personal AI fashion stylist.",
     url: "https://clamby.id",
     siteName: "Clamby",
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Clamby - Digital Wardrobe Assistant",
+        alt: "Clamby - AI Wardrobe in Your Pocket",
       },
     ],
     locale: "en_US",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clamby - Your Digital Wardrobe Assistant",
+    title: "Clamby | AI Wardrobe in Your Pocket",
     description:
-      "Transform your wardrobe with AI-powered style guidance. Upload your clothes, get AI-enhanced versions, and mix & match fashion items based on occasion, weather, and your preferred style.",
+      "Organize your closet, create stunning outfits, and let AI style you perfectly every morning. Your personal AI fashion stylist.",
     images: ["/og.png"],
   },
   robots: {
@@ -61,11 +61,10 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <AboutSection />
-      <MilestonesSection />
-      <ReviewSection />
-      <ContactSection />
-      <WaitlistSection />
+      <MarqueeSection />
+      <CarouselSection />
+      <BenefitsSection />
+      <CTASection />
     </>
   );
 }

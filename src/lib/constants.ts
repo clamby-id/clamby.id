@@ -5,11 +5,9 @@
 
 // Internal navigation links (hash links for sections)
 export const NAV_LINKS = {
-  ABOUT_US: "#about-us",
-  MILESTONES: "#milestones",
-  REVIEWS: "#reviews",
-  CONTACT_US: "#contact-us",
-  WAITLIST: "#waitlist",
+  OVERVIEW: "#overview",
+  BENEFITS: "#benefits",
+  CONTACT: "#contact",
 } as const;
 
 // Internal route paths
@@ -21,36 +19,99 @@ export const ROUTES = {
 
 // External links
 export const EXTERNAL_LINKS = {
-  // App Store links (placeholder)
-  APP_STORE: "https://apps.apple.com/app/clamby",
-  GOOGLE_PLAY: "https://play.google.com/store/apps/details?id=com.clamby",
+  // App Store links
+  APP_STORE:
+    "https://apps.apple.com/app/ai-wardrobe-stylist-clamby/id6755164488",
 
-  // Social media (placeholder)
-  INSTAGRAM: "https://instagram.com/clamby",
-  TWITTER: "https://twitter.com/clamby",
-  FACEBOOK: "https://facebook.com/clamby",
+  // Social media
+  INSTAGRAM: "https://www.instagram.com/clamby.app/",
 
   // Contact
-  MAP: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.7601866007828!2d115.17530328595734!3d-8.737009289297397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd245ca9067d533%3A0xfd47d89b17f0fd0f!2sApple%20Developer%20Academy%20%40BINUS%20-%20Bali!5e0!3m2!1sen!2sid!4v1762326396888!5m2!1sen!2sid",
+  EMAIL: "mailto:contact@clamby.id",
 } as const;
 
 // Brand information
 export const BRAND = {
-  NAME: "CLAMBY",
-  TAGLINE: "Your Digital Wardrobe Assistant",
+  NAME: "Clamby",
+  TAGLINE: "Your personal AI stylist.",
+  DESCRIPTION:
+    "Organize your closet, create stunning outfits, and let AI style you perfectly every morning.",
 } as const;
+
+// Hero section content
+export const HERO_CONTENT = {
+  BADGE: "AI POWERED FASHION ASSISTANT",
+  TYPEWRITER_WORDS: ["WARDROBE", "FASHION STYLIST", "SHOPPING ASSISTANT"],
+  TAGLINE: "IN YOUR POCKET",
+  DESCRIPTION:
+    "Organize your closet, create stunning outfits, and let AI style you perfectly every morning.",
+  CTA_SUBTEXT: "Free to download - Early access available",
+} as const;
+
+// Benefits section content
+export const BENEFITS = [
+  {
+    title: "SAVE TIME",
+    description:
+      "Pick outfits in seconds, not minutes. Spend less time staring at your closet.",
+    icon: "clock",
+  },
+  {
+    title: "DRESS BETTER",
+    description:
+      "Discover combinations you wouldn't think of. Let AI style you.",
+    icon: "shirt",
+  },
+  {
+    title: "BUY LESS",
+    description: "Make the most of the wardrobe you already own.",
+    icon: "tag",
+  },
+] as const;
+
+// Carousel step indicators
+export const CAROUSEL_STEPS = [
+  {
+    label: "SNAP!",
+    description: "Take photos",
+    icon: "camera",
+    bgColor: "bg-blue-50",
+    iconBgColor: "bg-blue-100",
+  },
+  {
+    label: "AI Magic",
+    description: "",
+    icon: "wand",
+    bgColor: "bg-primary",
+    iconBgColor: "bg-primary",
+    isCenter: true,
+  },
+  {
+    label: "SAVE!",
+    description: "New Outfits",
+    icon: "shirt",
+    bgColor: "bg-green-50",
+    iconBgColor: "bg-green-100",
+  },
+] as const;
 
 // Asset paths (images, icons, etc.)
 export const ASSETS = {
+  LOGO: "/clamby-logomark.webp",
   LOGO_WITH_TEXT: "/logo-with-text.png",
   LOGO_WITH_TEXT_WHITE: "/logo-with-text-white.png",
   LOGO_WITH_TEXT_BLACK: "/logo-with-text-black.png",
-  HERO_IMAGE: "/hero.png",
   OG_IMAGE: "/og.png",
   ICON: "/icon.png",
-  PLACEHOLDER_VIDEO: "/placeholder-video.mp4",
-  QR_CODE: "/qrcode.png",
-  APP_STORE_BADGE: "/apple.png",
-  GOOGLE_PLAY_BADGE: "/google-play.png",
-  WELCOME_IMAGE: "/welcome.webp",
+  APP_STORE_BADGE: "/app-store-badge.svg",
+  VIDEO: "/clamby-showreel.webm",
+  CAROUSEL: [
+    "/carousel/1.webp",
+    "/carousel/2.webp",
+    "/carousel/3.webp",
+    "/carousel/4.webp",
+    "/carousel/5.webp",
+    "/carousel/6.webp",
+    "/carousel/7.webp",
+  ],
 } as const;
