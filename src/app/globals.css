@@ -29,6 +29,63 @@
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-gradient-bg {
+  background: radial-gradient(
+    ellipse at center,
+    var(--brand-100) 0%,
+    white 70%
+  );
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-animation-delay-1 {
+  animation: float 6s ease-in-out infinite 1s;
+}
+
+.float-animation-delay-2 {
+  animation: float 6s ease-in-out infinite 2s;
+}
+
+.float-animation-delay-0-5 {
+  animation: float 6s ease-in-out infinite 0.5s;
+}
+
+.blink-animation {
+  animation: blink 1s step-end infinite;
+}
+
 :root {
   --background: oklch(0.9851 0 0);
   --foreground: oklch(0.2732 0.0113 300.8271);
@@ -36,8 +93,8 @@
   --card-foreground: oklch(0.2732 0.0113 300.8271);
   --popover: oklch(0.9851 0 0);
   --popover-foreground: oklch(0.3211 0 0);
-  --primary: oklch(0.7192 0.1631 240.0798);
-  --primary-foreground: oklch(0.2732 0.0113 300.8271);
+  --primary: oklch(0.627 0.242 292);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.5074 0.202 272.2994);
   --secondary-foreground: oklch(0.9851 0 0);
   --muted: oklch(0.9461 0 0);
@@ -48,7 +105,18 @@
   --destructive-foreground: oklch(0.9779 0.0107 17.3404);
   --border: oklch(0.8699 0 0);
   --input: oklch(0.8699 0 0);
-  --ring: oklch(0.7225 0.1076 279.1871);
+  --ring: oklch(0.627 0.242 292);
+
+  --brand-50: #f5f3ff;
+  --brand-100: #ede9fe;
+  --brand-200: #ddd6fe;
+  --brand-300: #c4b5fd;
+  --brand-400: #a78bfa;
+  --brand-500: #8b5cf6;
+  --brand-600: #7c3aed;
+  --brand-700: #6d28d9;
+  --brand-800: #5b21b6;
+  --brand-900: #4c1d95;
   --chart-1: oklch(0.7192 0.1631 240.0798);
   --chart-2: oklch(0.6077 0.1733 275.537);
   --chart-3: oklch(0.7981 0.1188 178.6557);
@@ -62,7 +130,7 @@
   --sidebar-accent-foreground: oklch(0.2732 0.0113 300.8271);
   --sidebar-border: oklch(0.8699 0 0);
   --sidebar-ring: oklch(0.7225 0.1076 279.1871);
-  --font-sans: Poppins, sans-serif;
+  --font-sans: var(--font-outfit), Outfit, sans-serif;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: Roboto Mono, monospace;
   --radius: 0.5rem;
@@ -121,7 +189,7 @@
   --sidebar-accent-foreground: oklch(0 0 0);
   --sidebar-border: oklch(0.3867 0 0);
   --sidebar-ring: oklch(0.8027 0.1355 349.2347);
-  --font-sans: Poppins, sans-serif;
+  --font-sans: var(--font-outfit), Outfit, sans-serif;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: Roboto Mono, monospace;
   --radius: 0.5rem;
@@ -179,9 +247,24 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
+
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-blink: blink 1s step-end infinite;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

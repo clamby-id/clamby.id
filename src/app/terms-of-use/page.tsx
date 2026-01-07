@@ -40,8 +40,8 @@ export const metadata: Metadata = {
 
 export default function TermsOfUsePage() {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-12">
+    <div className="min-h-screen bg-background pt-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-4xl">
         <TermsOfUseHeader />
 
         <AgreementSection />
