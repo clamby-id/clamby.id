@@ -5,9 +5,9 @@
 
 // Internal navigation links (hash links for sections)
 export const NAV_LINKS = {
-  OVERVIEW: "#overview",
-  BENEFITS: "#benefits",
-  CONTACT: "#contact",
+  OVERVIEW: "/#overview",
+  BENEFITS: "/#benefits",
+  CONTACT: "/#contact",
 } as const;
 
 // Internal route paths

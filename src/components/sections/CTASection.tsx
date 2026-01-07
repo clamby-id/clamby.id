@@ -20,12 +20,6 @@ export function CTASection() {
               src={ASSETS.VIDEO.replace(".webm", ".mp4")}
               type="video/mp4"
             />
-            <track
-              kind="captions"
-              srcLang="en"
-              label="English captions"
-              src=""
-            />
             {/* Fallback content for browsers that don't support video */}
             Your browser does not support the video tag.
           </video>
