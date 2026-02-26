@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import { Camera, Wand2, Shirt } from "lucide-react";
 import { ASSETS } from "@/lib/constants";
+import { Camera, Shirt, Wand2 } from "lucide-react";
+import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
 
 const carouselImages = ASSETS.CAROUSEL;
 

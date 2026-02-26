@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { MarqueeSection } from "@/components/sections/MarqueeSection";
-import { CarouselSection } from "@/components/sections/CarouselSection";
 import { BenefitsSection } from "@/components/sections/BenefitsSection";
+import ClosetSection from "@/components/sections/ClosetSection";
 import { CTASection } from "@/components/sections/CTASection";
+import { HeroSection } from "@/components/sections/HeroSection";
+import ReviewSection from "@/components/sections/ReviewSection";
 import { ASSETS } from "@/lib/constants";
+import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Clamby | AI Wardrobe in Your Pocket",
@@ -60,10 +61,16 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <Image
+        src="/frame_15.svg"
+        alt="Gradient"
+        width={1356}
+        height={1365}
+        className="absolute z-0 top-0 right-0 h-full w-fit   object-none overflow-visible"
+      />
       <HeroSection />
-      <MarqueeSection />
-      <CarouselSection />
-      <BenefitsSection />
+      <ClosetSection />
+      <ReviewSection />
       <CTASection />
     </>
   );
