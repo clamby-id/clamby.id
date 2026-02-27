@@ -61,17 +61,14 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Image
-        src="/frame_15.svg"
-        alt="Gradient"
-        width={1356}
-        height={1365}
-        className="absolute z-0 top-0 right-0 h-full w-fit   object-none overflow-visible"
-      />
+
+
       <HeroSection />
+
       <ClosetSection />
       <ReviewSection />
       <CTASection />
     </>
   );
 }
+

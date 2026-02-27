@@ -2,6 +2,7 @@
 
 import { ASSETS, EXTERNAL_LINKS, HERO_CONTENT } from "@/lib/constants";
 import Image from "next/image";
+import Gradient from "../ui/gradient";
 
 export function HeroSection() {
   return (
@@ -9,6 +10,7 @@ export function HeroSection() {
       id="overview"
       className="relative pt-32 pb-20 lg:pt-48 lg:pb-24 overflow-hidden "
     >
+      <Gradient className="h-full" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex flex-col gap-8 items-center text-center">
           {/* Badge */}
