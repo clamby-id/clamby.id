@@ -5,8 +5,8 @@
 
 // Internal navigation links (hash links for sections)
 export const NAV_LINKS = {
-  OVERVIEW: "/#overview",
-  BENEFITS: "/#benefits",
+  FEATURES: "/#features",
+  REVIEW: "/#review",
   CONTACT: "/#contact",
 } as const;
 
@@ -25,6 +25,7 @@ export const EXTERNAL_LINKS = {
 
   // Social media
   INSTAGRAM: "https://www.instagram.com/clamby.app/",
+  LINKEDIN: "https://www.linkedin.com/company/clamby/",
 
   // Contact
   EMAIL: "mailto:contact@clamby.id",
@@ -34,17 +35,17 @@ export const EXTERNAL_LINKS = {
 export const BRAND = {
   NAME: "Clamby",
   TAGLINE: "Your personal AI stylist.",
-  DESCRIPTION:
-    "Organize your closet, create stunning outfits, and let AI style you perfectly every morning.",
+  DESCRIPTION: "Rediscover your closet and make mindful fashion choices.",
+  FOOTER: "Wear more of what you own. We help you visualize your style potential so you can maximize your wardrobe and shop less.",
+  IMAGE: "/logo-with-text.png"
 } as const;
 
 // Hero section content
 export const HERO_CONTENT = {
-  BADGE: "AI POWERED FASHION ASSISTANT",
-  TYPEWRITER_WORDS: ["WARDROBE", "FASHION STYLIST", "SHOPPING ASSISTANT"],
+  BADGE: "#Buy Less - Style More",
+  HEAD_TAGLINE: "YOUR WARDROBE",
   TAGLINE: "IN YOUR POCKET",
-  DESCRIPTION:
-    "Organize your closet, create stunning outfits, and let AI style you perfectly every morning.",
+  DESCRIPTION: "Rediscover your closet and make mindful fashion choices.",
   CTA_SUBTEXT: "Free to download - Early access available",
 } as const;
 
@@ -69,15 +70,44 @@ export const BENEFITS = [
   },
 ] as const;
 
+export const REVIEWS = [
+  {
+    review: "One mirror selfie completely organized my entire closet.",
+    name: "Sarah Jenkins",
+    occupation: "Marketing Manager",
+    image: "/reviews/1.png"
+  },
+  {
+    review: "No more messy piles of clothes every single morning.",
+    name: "Marcus Chen",
+    occupation: "Software Engineer",
+    image: "/reviews/2.png"
+  },
+  {
+    review: "I can visualize my outfits without opening my closet.",
+    name: "Elena Rodriguez",
+    occupation: "Graphic Designer",
+    image: "/reviews/3.png"
+  },
+  {
+    review: "The AI stylist picks my outfits perfectly every day.",
+    name: "Chloe Bennet",
+    occupation: "Data Analyst",
+    image: "/reviews/4.png"
+  }
+] as const;
+
 // Asset paths (images, icons, etc.)
 export const ASSETS = {
   LOGO: "/clamby-logomark.webp",
   LOGO_WITH_TEXT: "/logo-with-text.png",
   LOGO_WITH_TEXT_WHITE: "/logo-with-text-white.png",
   LOGO_WITH_TEXT_BLACK: "/logo-with-text-black.png",
+  MOCK_UP: "/hero-mockup.webp",
+  CLOSET: ["/messy-clothes.webp"],
   OG_IMAGE: "/og.png",
   ICON: "/icon.png",
-  APP_STORE_BADGE: "/app-store-badge.svg",
+  APP_STORE_BADGE: "/app_store_badge.webp",
   VIDEO: "/clamby-showreel.webm",
   CAROUSEL: [
     "/carousel/1.webp",

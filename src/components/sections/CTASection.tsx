@@ -3,7 +3,7 @@ import { ASSETS, EXTERNAL_LINKS, HERO_CONTENT } from "@/lib/constants";
 
 export function CTASection() {
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-white">
+    <section id="contact" className="py-16 lg:py-24 ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
           {/* Video background */}
@@ -40,7 +40,7 @@ export function CTASection() {
           {/* Content */}
           <div className="relative z-10 py-16 lg:py-24 px-6 text-center">
             {/* Headline */}
-            <h2 className="text-4xl md:text-6xl font-black text-brand-900 uppercase tracking-tight mb-8">
+            <h2 className="text-4xl md:text-6xl font-medium text-black uppercase tracking-tight mb-8">
               DRESS SMARTER
               <br />
               WITH CLAMBY
@@ -58,12 +58,12 @@ export function CTASection() {
                 alt="Download on the App Store"
                 width={180}
                 height={60}
-                className="h-14 w-auto"
+                className="h-14 w-auto border rounded-full border-white drop-shadow-lg drop-shadow-black/50"
               />
             </a>
 
             {/* Subtext */}
-            <p className="text-sm text-muted-foreground">
+            <p className="text-2xl font-extralight">
               {HERO_CONTENT.CTA_SUBTEXT}
             </p>
           </div>
